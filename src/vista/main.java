@@ -23,6 +23,8 @@ public class main {
      */
     public static Concesionario cn = new Concesionario();
 
+    static int contV = 0, contM = 0, contG = 0;
+
     public static int menu() {
         Scanner scanner = new Scanner(System.in);
         int opc;
@@ -51,7 +53,15 @@ public class main {
             opc = menu();
             switch (opc) {
                 case 1:
-                    addEmpleado();
+                    if (contV < 2 || contM < 2 || contG < 2) {
+                        System.out.println("Debes de crear al menos dos empleados de cada tipo.");
+                        while (contV < 2 || contM < 2 || contG < 2) {
+                            addEmpleado();
+                        }
+                    } else {
+                        addEmpleado();
+                    }
+
                     break;
                 case 2:
                     cn.trabajarTodos();
@@ -79,16 +89,25 @@ public class main {
             case "vendedor":
                 Empleado vendedor = new Vendedor(nombre);
                 cn.agregarEmpleado(vendedor);
+                if (contV < 2) {
+                    contV++;
+                }
                 System.out.println("Vendedor creado correctamente.");
                 break;
             case "mecanico":
                 Empleado mecanico = new Mecanico(nombre);
                 cn.agregarEmpleado(mecanico);
-                System.out.println("Mecanico creado correctamente..");
+                if (contM < 2) {
+                    contM++;
+                }
+                System.out.println("Mecanico creado correctamente.");
                 break;
             case "gerente":
                 Empleado gerente = new Gerente(nombre);
                 cn.agregarEmpleado(gerente);
+                if (contG < 2) {
+                    contG++;
+                }
                 System.out.println("Gerente creado correctamente.");
                 break;
             default:
