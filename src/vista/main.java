@@ -6,7 +6,6 @@ package vista;
 
 import java.util.Scanner;
 
-import model.Concesionario;
 import model.Empleado;
 import model.Gerente;
 import model.Mecanico;
@@ -21,7 +20,7 @@ public class main {
     /**
      * @param args the command line arguments
      */
-    public static Concesionario cn = new Concesionario();
+    static Concesionario cn = new Concesionario();
 
     static int contV = 0, contM = 0, contG = 0;
 
@@ -74,6 +73,10 @@ public class main {
                     break;
                 case 5:
                     System.out.println("Exit, programa finalizado.");
+                    break;
+                    
+                default:
+                    System.err.print("Error, la opcion no existe.");
                     break;
             }
         } while (opc != 5);

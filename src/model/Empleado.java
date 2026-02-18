@@ -18,6 +18,10 @@ public abstract class Empleado implements Trabajo {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String trabajar() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
